@@ -1,0 +1,12 @@
+# Certificates and profiles storage location
+storage_mode("git")
+git_url("https://github.com/FFFFSU/private-ios-profiles")
+
+# Your app identifiers, in the form of array of strings
+app_identifier(["com.nico.cicd"])
+
+# Profiles types, defaults to 'development'
+type("development") 
+
+# Apple Developer Account email
+username("christiannico04@gmail.com")
