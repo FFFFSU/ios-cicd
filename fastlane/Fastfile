@@ -112,14 +112,26 @@ platform :ios do
       readonly: true,
     )
 
-    build_ios_app(
-      workspace: "CICD.xcworkspace",
+    # build_ios_app(
+    #   workspace: "CICD.xcworkspace",
+    #   configuration: "Debug",
+    #   scheme: "CICD",
+    #   clean: true,
+    #   export_method: "app-store",
+    #   output_name: "CICD.ipa",
+    #   export_team_id: CredentialsManager::AppfileConfig.try_fetch_value(:team_id),
+    # )
+
+    gym(
       configuration: "Debug",
+      workspace: "CICD.xcworkspace",
       scheme: "CICD",
-      clean: true,
       export_method: "app-store",
-      output_name: "CICD.ipa",
-      export_team_id: CredentialsManager::AppfileConfig.try_fetch_value(:team_id),
+      export_options: {
+        provisioningProfiles: { 
+            DEVELOPER_APP_ID => PROVISIONING_PROFILE_SPECIFIER
+        }
+      }
     )
 
     firebase_app_distribution(
