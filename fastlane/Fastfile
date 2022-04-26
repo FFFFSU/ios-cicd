@@ -105,23 +105,12 @@ platform :ios do
       clean_install: true
     )
 
-    # match(
-    #   type: "appstore", 
-    #   app_identifier: "com.nico.cicd",
-    #   git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
-    # )
-
-    # gym(
-    #   configuration: "Debug",
-    #   workspace: "CICD.xcworkspace",
-    #   scheme: "CICD",
-    #   export_method: "app-store",
-    #   export_options: {
-    #     provisioningProfiles: { 
-    #         DEVELOPER_APP_ID => PROVISIONING_PROFILE_SPECIFIER
-    #     }
-    #   }
-    # )
+    match(
+      type: 'appstore',
+      app_identifier: "#{DEVELOPER_APP_IDENTIFIER}",
+      git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
+      readonly: true,
+    )
 
     build_ios_app(
       workspace: "CICD.xcworkspace",
