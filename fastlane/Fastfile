@@ -102,19 +102,37 @@ platform :ios do
   desc "Build project into IPA and distribute to Firebase"
   lane :build_ipa_to_firebase do
     match(
+      type: 'appstore',
+      app_identifier: "#{DEVELOPER_APP_IDENTIFIER}",
+      git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
+    )
+
+    match(
       type: 'development',
       app_identifier: "#{DEVELOPER_APP_IDENTIFIER}",
       git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
     )
 
-    build_ios_app(
-      workspace: "CICD.xcworkspace",
+    gym(
       configuration: "Debug",
+      workspace: "CICD.xcworkspace",
       scheme: "CICD",
-      clean: true,
-      export_method: "app-store",
-      output_name: "CICD.ipa"
+      export_method: "development",
+      export_options: {
+        provisioningProfiles: { 
+            DEVELOPER_APP_ID => PROVISIONING_PROFILE_SPECIFIER
+        }
+      }
     )
+
+    # build_ios_app(
+    #   workspace: "CICD.xcworkspace",
+    #   configuration: "Debug",
+    #   scheme: "CICD",
+    #   clean: true,
+    #   export_method: "app-store",
+    #   output_name: "CICD.ipa"
+    # )
 
     # firebase_app_distribution(
     #   ipa_path: "./CICD.ipa",
