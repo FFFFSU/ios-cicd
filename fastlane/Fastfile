@@ -112,6 +112,13 @@ platform :ios do
       readonly: true,
     )
 
+    match(
+      type: 'development',
+      app_identifier: "#{DEVELOPER_APP_IDENTIFIER}",
+      git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
+      readonly: true,
+    )
+
     # build_ios_app(
     #   workspace: "CICD.xcworkspace",
     #   configuration: "Debug",
