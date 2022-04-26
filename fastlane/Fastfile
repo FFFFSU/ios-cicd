@@ -9,7 +9,7 @@ APPLE_ISSUER_ID = ENV["APPLE_ISSUER_ID"]
 APPLE_KEY_ID = ENV["APPLE_KEY_ID"]
 APPLE_KEY_CONTENT = ENV["APPLE_KEY_CONTENT"]
 GIT_AUTHORIZATION = ENV["GIT_AUTHORIZATION"]
-FIREBASE_CLI_TOKEN = ENV["FIREBASE_TOKEN"]
+FIREBASE_TOKEN = ENV["FIREBASE_TOKEN"]
 FIREBASE_APP_ID = ENV["FIREBASE_APP_ID"]
 
 def delete_temp_keychain(name)
@@ -119,16 +119,6 @@ platform :ios do
       readonly: true,
     )
 
-    # build_ios_app(
-    #   workspace: "CICD.xcworkspace",
-    #   configuration: "Debug",
-    #   scheme: "CICD",
-    #   clean: true,
-    #   export_method: "app-store",
-    #   output_name: "CICD.ipa",
-    #   export_team_id: CredentialsManager::AppfileConfig.try_fetch_value(:team_id),
-    # )
-
     gym(
       configuration: "Debug",
       workspace: "CICD.xcworkspace",
@@ -144,7 +134,7 @@ platform :ios do
     firebase_app_distribution(
       ipa_path: "./CICD.ipa",
       app: "#{FIREBASE_APP_ID}",
-      firebase_cli_token: "#{FIREBASE_CLI_TOKEN}",
+      firebase_cli_token: "#{FIREBASE_TOKEN}",
     )
   end
 end
