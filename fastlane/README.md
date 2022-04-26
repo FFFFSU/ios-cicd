@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Main lane to distribute app to TestFlight
 
+### ios build_ipa_to_firebase
+
+```sh
+[bundle exec] fastlane ios build_ipa_to_firebase
+```
+
+Build project into IPA and distribute to Firebase
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
