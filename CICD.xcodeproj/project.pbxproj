@@ -16,9 +16,6 @@
 		033B012828168C5400141718 /* CICDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033B012728168C5400141718 /* CICDTests.swift */; };
 		033B013228168C5400141718 /* CICDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033B013128168C5400141718 /* CICDUITests.swift */; };
 		033B013428168C5400141718 /* CICDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033B013328168C5400141718 /* CICDUITestsLaunchTests.swift */; };
-		035DADE32817D030001E53FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035DADE22817D030001E53FE /* GoogleService-Info.plist */; };
-		035DADE42817D030001E53FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035DADE22817D030001E53FE /* GoogleService-Info.plist */; };
-		035DADE52817D030001E53FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 035DADE22817D030001E53FE /* GoogleService-Info.plist */; };
 		09FD8C28593C3D396A238080 /* Pods_CICDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F720A595219378BDD4BC54EE /* Pods_CICDTests.framework */; };
 		6EF8E81EB4B519919EAF9EB2 /* Pods_CICD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CD91C41BFCC0B155518BD /* Pods_CICD.framework */; };
 		A248AD184C1681B7291487D5 /* Pods_CICD_CICDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99507885E3AA3C7E4DB97F5E /* Pods_CICD_CICDUITests.framework */; };
@@ -55,7 +52,6 @@
 		033B012D28168C5400141718 /* CICDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CICDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		033B013128168C5400141718 /* CICDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CICDUITests.swift; sourceTree = "<group>"; };
 		033B013328168C5400141718 /* CICDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CICDUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		035DADE22817D030001E53FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1ED756E323BD0DD8F17F6854 /* Pods-CICDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CICDTests.release.xcconfig"; path = "Target Support Files/Pods-CICDTests/Pods-CICDTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F7CD91C41BFCC0B155518BD /* Pods_CICD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CICD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		486AE5BF6853C7933BE7B2E7 /* Pods-CICD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CICD.release.xcconfig"; path = "Target Support Files/Pods-CICD/Pods-CICD.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,7 +123,6 @@
 				033B011928168C5400141718 /* Assets.xcassets */,
 				033B011B28168C5400141718 /* LaunchScreen.storyboard */,
 				033B011E28168C5400141718 /* Info.plist */,
-				035DADE22817D030001E53FE /* GoogleService-Info.plist */,
 			);
 			path = CICD;
 			sourceTree = "<group>";
@@ -286,7 +281,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				033B011D28168C5400141718 /* LaunchScreen.storyboard in Resources */,
-				035DADE32817D030001E53FE /* GoogleService-Info.plist in Resources */,
 				033B011A28168C5400141718 /* Assets.xcassets in Resources */,
 				033B011828168C5300141718 /* Main.storyboard in Resources */,
 			);
@@ -296,7 +290,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				035DADE42817D030001E53FE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +297,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				035DADE52817D030001E53FE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
