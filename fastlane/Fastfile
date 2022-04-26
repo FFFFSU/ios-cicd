@@ -101,27 +101,13 @@ platform :ios do
 
   desc "Build project into IPA and distribute to Firebase"
   lane :build_ipa_to_firebase do
-    match(
-      type: 'appstore',
-      app_identifier: "#{DEVELOPER_APP_IDENTIFIER}",
-      git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
-      keychain_name: keychain_name,
-      keychain_password: keychain_password,
-    )
-
-    match(
-      type: 'development',
-      app_identifier: "#{DEVELOPER_APP_IDENTIFIER}",
-      git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
-      keychain_name: keychain_name,
-      keychain_password: keychain_password,
-    )
+    match(type: "appstore", app_identifier: "com.nico.cicd")
 
     gym(
       configuration: "Debug",
       workspace: "CICD.xcworkspace",
       scheme: "CICD",
-      export_method: "development",
+      export_method: "app-store",
       export_options: {
         provisioningProfiles: { 
             DEVELOPER_APP_ID => PROVISIONING_PROFILE_SPECIFIER
