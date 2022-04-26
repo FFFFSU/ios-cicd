@@ -101,37 +101,42 @@ platform :ios do
 
   desc "Build project into IPA and distribute to Firebase"
   lane :build_ipa_to_firebase do
-    match(
-      type: "appstore", 
-      app_identifier: "com.nico.cicd",
-      git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
+    cocoapods(
+      clean_install: true
     )
 
-    gym(
-      configuration: "Debug",
-      workspace: "CICD.xcworkspace",
-      scheme: "CICD",
-      export_method: "app-store",
-      export_options: {
-        provisioningProfiles: { 
-            DEVELOPER_APP_ID => PROVISIONING_PROFILE_SPECIFIER
-        }
-      }
-    )
+    # match(
+    #   type: "appstore", 
+    #   app_identifier: "com.nico.cicd",
+    #   git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
+    # )
 
-    # build_ios_app(
-    #   workspace: "CICD.xcworkspace",
+    # gym(
     #   configuration: "Debug",
+    #   workspace: "CICD.xcworkspace",
     #   scheme: "CICD",
-    #   clean: true,
     #   export_method: "app-store",
-    #   output_name: "CICD.ipa"
+    #   export_options: {
+    #     provisioningProfiles: { 
+    #         DEVELOPER_APP_ID => PROVISIONING_PROFILE_SPECIFIER
+    #     }
+    #   }
     # )
 
-    # firebase_app_distribution(
-    #   ipa_path: "./CICD.ipa",
-    #   app: "#{FIREBASE_APP_ID}",
-    #   firebase_cli_token: "#{FIREBASE_CLI_TOKEN}",
-    # )
+    build_ios_app(
+      workspace: "CICD.xcworkspace",
+      configuration: "Debug",
+      scheme: "CICD",
+      clean: true,
+      export_method: "app-store",
+      output_name: "CICD.ipa",
+      export_team_id: CredentialsManager::AppfileConfig.try_fetch_value(:team_id),
+    )
+
+    firebase_app_distribution(
+      ipa_path: "./CICD.ipa",
+      app: "#{FIREBASE_APP_ID}",
+      firebase_cli_token: "#{FIREBASE_CLI_TOKEN}",
+    )
   end
 end
