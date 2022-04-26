@@ -1,9 +1,9 @@
 name: Build project into IPA
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions a tab
   workflow_dispatch:
@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
-      - name: Deploy iOS to TestFlight via Fastlane
+      - name: Deploy iOS to Firebase via Fastlane
         uses: maierj/fastlane-action@v1.4.0
         with:
           lane: build_ipa_to_firebase
