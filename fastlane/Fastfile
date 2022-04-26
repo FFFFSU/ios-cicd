@@ -101,6 +101,8 @@ platform :ios do
 
   desc "Build project into IPA and distribute to Firebase"
   lane :build_ipa_to_firebase do
+    setup_ci
+
     cocoapods(
       clean_install: true
     )
