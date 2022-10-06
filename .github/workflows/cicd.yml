@@ -17,6 +17,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
+      - name: Selecting Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '13.1'
+
       - name: Deploy iOS to TestFlight via Fastlane
         uses: maierj/fastlane-action@v1.4.0
         with:
